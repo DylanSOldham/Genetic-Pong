@@ -1,6 +1,6 @@
 const Logger = {
-    log: (str) => console.log(str),
-    err: (str) => console.error(str),
+    log: console.log,
+    err: console.error,
 };
 
 export { Logger };

@@ -9,7 +9,7 @@ class ActorManager {
 
     addActor (actor) 
     {
-        if (!actor.Update && !actor.Render) {
+        if (!(actor.Update || actor.Render)) {
             Logger.err("Actor must have an Update or Render function: " + JSON.stringify(actor));
             return;
         }
@@ -21,6 +21,8 @@ class ActorManager {
     }
 
     loadScene (scene) {
+        Logger.log("Loading New Scene");
+
         this.actors = [];
         let newActors = scene.load(); // TODO - load will take persistent game state as input
 
